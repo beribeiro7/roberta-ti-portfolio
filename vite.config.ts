@@ -206,6 +206,8 @@ function vitePluginStorageProxy(): Plugin {
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
 export default defineConfig({
+  // GitHub Pages serves this project from the repository subpath.
+  base: process.env.GITHUB_ACTIONS === "true" ? "/roberta-ti-portfolio/" : "/",
   plugins,
   resolve: {
     alias: {
